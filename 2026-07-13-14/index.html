@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EMAKASE Daily Market Recap - 13-14/07/2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-900: #003a31;
+      --green-500: #73ba9b;
+      --green-100: #d4f2e3;
+      --red-900: #45030c;
+      --red-700: #720813;
+      --beige: #f1e7c9;
+      --ink: #10231f;
+      --muted: #66746f;
+      --line: rgba(0, 58, 49, 0.14);
+      --paper: #fbfaf5;
+      --white: #ffffff;
+      --shadow: 0 18px 52px rgba(0, 58, 49, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    body {
+      margin: 0;
+      font-family: Roboto, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(212, 242, 227, 0.72), transparent 360px),
+        var(--paper);
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .scroll-nav {
+      position: fixed;
+      left: max(12px, calc((100vw - 1180px) / 2 - 92px));
+      top: 50%;
+      z-index: 20;
+      display: grid;
+      gap: 10px;
+      width: 132px;
+      transform: translateY(-50%);
+    }
+
+    .scroll-nav::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 16px;
+      bottom: 16px;
+      width: 2px;
+      background: rgba(0, 58, 49, 0.14);
+    }
+
+    .scroll-link {
+      position: relative;
+      display: grid;
+      grid-template-columns: 32px max-content;
+      gap: 8px;
+      align-items: center;
+      color: rgba(0, 58, 49, 0.62);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .scroll-dot {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(0, 58, 49, 0.18);
+      border-radius: 50%;
+      background: rgba(251, 250, 245, 0.92);
+      box-shadow: 0 6px 18px rgba(0, 58, 49, 0.08);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .scroll-label {
+      max-width: 88px;
+      padding: 7px 9px;
+      border: 1px solid rgba(0, 58, 49, 0);
+      border-radius: 999px;
+      background: rgba(251, 250, 245, 0);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .scroll-link:hover .scroll-label,
+    .scroll-link:focus-visible .scroll-label,
+    .scroll-link.is-active .scroll-label {
+      opacity: 1;
+      transform: translateX(0);
+      background: rgba(251, 250, 245, 0.96);
+      border-color: rgba(0, 58, 49, 0.12);
+    }
+
+    .scroll-link:hover .scroll-dot,
+    .scroll-link:focus-visible .scroll-dot,
+    .scroll-link.is-active .scroll-dot {
+      color: var(--white);
+      background: var(--green-900);
+      border-color: var(--green-900);
+      transform: scale(1.08);
+    }
+
+    .scroll-link:focus-visible {
+      outline: none;
+    }
+
+    .hero {
+      min-height: 520px;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 28px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(0, 58, 49, 0.97), rgba(0, 58, 49, 0.82)),
+        radial-gradient(circle at 82% 28%, rgba(115, 186, 155, 0.45), transparent 38%),
+        var(--green-900);
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -6% -12% 46%;
+      height: 270px;
+      background:
+        linear-gradient(90deg, transparent, rgba(241, 231, 201, 0.16)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 1px, transparent 1px 36px);
+      transform: skewY(-8deg);
+      pointer-events: none;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 72px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 148px;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .date-pill {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      z-index: 2;
+      color: var(--green-900);
+      background: var(--beige);
+      border: 1px solid rgba(241, 231, 201, 0.8);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .hero-lede {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-panel h2 {
+      margin: 0 0 16px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--beige);
+      letter-spacing: 0.08em;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      line-height: 1.38;
+      font-size: 15px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .takeaway-list span {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      color: var(--green-900);
+      background: var(--green-100);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    section {
+      margin-top: 22px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 28px rgba(0, 58, 49, 0.05);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: var(--green-500);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--green-900);
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      text-align: right;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 146px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .metric .label {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric .value {
+      margin: 0;
+      color: var(--green-900);
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .metric .delta {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 12px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--green-900);
+      background: var(--green-100);
+    }
+
+    .metric .delta.down {
+      color: var(--red-700);
+      background: rgba(114, 8, 19, 0.1);
+    }
+
+    .market-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .story-box {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--green-900);
+      color: var(--white);
+    }
+
+    .story-box h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .story-box p,
+    .text-list li {
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .story-box p + p { margin-top: 12px; }
+
+    .text-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .text-list li {
+      position: relative;
+      padding-left: 20px;
+      color: #243b36;
+    }
+
+    .text-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-500);
+    }
+
+    .signal-board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .signal {
+      min-height: 92px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .signal strong em {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .signal.alert {
+      border-color: rgba(114, 8, 19, 0.25);
+      background: rgba(114, 8, 19, 0.06);
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 72px;
+      gap: 12px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .track {
+      position: relative;
+      height: 10px;
+      background: rgba(0, 58, 49, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-radius: inherit;
+      background: var(--green-500);
+    }
+
+    .fill.down {
+      right: 50%;
+      background: var(--red-700);
+    }
+
+    .fill.up { left: 50%; }
+
+    .bar-value {
+      text-align: right;
+      font-weight: 800;
+      color: var(--green-900);
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      white-space: nowrap;
+    }
+
+    .bar-value.down { color: var(--red-700); }
+
+    .macro-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .macro-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .macro-table th,
+    .macro-table td {
+      padding: 13px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .macro-table th {
+      color: var(--green-900);
+      background: var(--green-100);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .macro-table tr:last-child td { border-bottom: 0; }
+    .macro-table td:last-child { font-weight: 800; text-align: right; }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .asset-group {
+      margin-top: 20px;
+    }
+
+    .asset-group h3 {
+      margin: 0 0 12px;
+      color: var(--green-900);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .asset-group .news-grid {
+      margin-top: 0;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      min-height: 104px;
+    }
+
+    .news-copy {
+      display: grid;
+      gap: 12px;
+      align-content: space-between;
+    }
+
+    .ticker {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      color: var(--white);
+      background: var(--green-900);
+      border-radius: var(--radius);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .news-item p {
+      margin: 0;
+      line-height: 1.45;
+      color: #213833;
+    }
+
+    .source-link {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 6px 10px;
+      border: 1px solid rgba(0, 58, 49, 0.18);
+      border-radius: 999px;
+      color: var(--green-900);
+      background: rgba(212, 242, 227, 0.55);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .source-link:hover,
+    .source-link:focus-visible {
+      border-color: var(--green-500);
+      background: var(--green-100);
+      outline: none;
+    }
+
+    .trend {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      margin-right: 5px;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+      font-style: normal;
+      box-shadow: inset 0 0 0 1px rgba(0, 58, 49, 0.08);
+    }
+
+    .trend.up {
+      color: var(--green-900);
+      background: var(--green-100);
+    }
+
+    .trend.down {
+      color: var(--white);
+      background: var(--red-700);
+    }
+
+    .commodity-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .commodity {
+      min-height: 138px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--green-900);
+      color: var(--white);
+    }
+
+    .commodity:nth-child(2),
+    .commodity:nth-child(5) {
+      background: var(--red-900);
+    }
+
+    .commodity:nth-child(3) {
+      color: var(--green-900);
+      background: var(--beige);
+    }
+
+    .commodity small {
+      display: block;
+      min-height: 34px;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .commodity:nth-child(3) small { color: rgba(0, 58, 49, 0.68); }
+
+    .commodity strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .commodity span {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .footer {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .market-layout,
+      .macro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { min-height: auto; }
+      .brand-row { margin-bottom: 48px; }
+      .date-pill { top: 22px; right: 22px; }
+      .grid-4,
+      .commodity-strip,
+      .signal-board { grid-template-columns: repeat(2, 1fr); }
+      .grid-3,
+      .news-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .section-note { text-align: left; }
+      .scroll-nav {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        top: auto;
+        bottom: 12px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        padding: 7px;
+        border: 1px solid rgba(0, 58, 49, 0.14);
+        border-radius: 999px;
+        background: rgba(251, 250, 245, 0.94);
+        box-shadow: 0 14px 34px rgba(0, 58, 49, 0.16);
+        transform: none;
+        backdrop-filter: blur(10px);
+      }
+
+      .scroll-nav::before,
+      .scroll-label {
+        display: none;
+      }
+
+      .scroll-link {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .scroll-dot {
+        width: 30px;
+        height: 30px;
+        box-shadow: none;
+      }
+
+      .footer {
+        padding-bottom: 58px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 20px, 1180px); padding-top: 10px; }
+      .hero,
+      section { padding: 18px; }
+      .brand-row { align-items: start; flex-direction: column; margin-bottom: 36px; }
+      .date-pill {
+        position: static;
+        order: 2;
+      }
+      .grid-4,
+      .commodity-strip,
+      .signal-board { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 82px 1fr 76px; gap: 8px; font-size: 12px; }
+      .news-item { grid-template-columns: 46px 1fr; }
+      .ticker { width: 46px; height: 46px; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+  <style>
+    .commodity.up {
+      color: var(--white);
+      background: var(--green-900);
+    }
+
+    .commodity.down {
+      color: var(--white);
+      background: var(--red-900);
+    }
+
+    .commodity.down small {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .commodity.flat {
+      color: var(--green-900);
+      background: var(--beige);
+    }
+
+    .commodity.flat small {
+      color: rgba(0, 58, 49, 0.68);
+    }
+
+    .global-index-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .global-index {
+      padding: 16px;
+      border: 1px solid rgba(0, 58, 49, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .global-index strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green-900);
+      font-size: 14px;
+    }
+
+    .global-index span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 760px) {
+      .global-index-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>
+    .commodity.up small {
+      color: rgba(255, 255, 255, 0.88);
+    }
+  </style>
+</head>
+<body>
+  <nav class="scroll-nav" aria-label="Điều hướng bản tin">
+    <a class="scroll-link is-active" href="#domestic-market" data-target="domestic-market"><span class="scroll-dot">01</span><span class="scroll-label">Việt Nam</span></a>
+    <a class="scroll-link" href="#world-market" data-target="world-market"><span class="scroll-dot">02</span><span class="scroll-label">Quốc tế</span></a>
+    <a class="scroll-link" href="#macro" data-target="macro"><span class="scroll-dot">03</span><span class="scroll-label">Vĩ mô</span></a>
+    <a class="scroll-link" href="#corporate" data-target="corporate"><span class="scroll-dot">04</span><span class="scroll-label">Doanh nghiệp</span></a>
+    <a class="scroll-link" href="#asset-watch" data-target="asset-watch"><span class="scroll-dot">05</span><span class="scroll-label">Tài sản</span></a>
+  </nav>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="brand-row">
+          <img class="brand-logo" src="emakase-logo.png" alt="EMAKASE" />
+          <div class="date-pill">Ngày 13-14 tháng 07 năm 2026</div>
+        </div>
+        <h1>Daily Market Recap</h1>
+        <p class="hero-lede">CPI Mỹ tốt hơn dự báo kéo giảm kỳ vọng tăng lãi suất, chứng khoán toàn cầu hồi phục; VN-Index tăng nhẹ lên 1.806,63 điểm, trong khi dầu và cước vận tải tiếp tục bứt phá.</p>
+      </div>
+      <aside class="hero-panel" aria-label="Tóm tắt toàn cảnh">
+        <h2>Tóm tắt toàn cảnh</h2>
+        <ul class="takeaway-list">
+          <li><span>01</span>Mỹ và Iran tiếp tục giao tranh, nhưng ông Trump hủy ý định thu phí 20% trên Eo biển Hormuz.</li>
+          <li><span>02</span>CPI Mỹ tháng 06 tốt hơn dự báo, làm xác suất tăng lãi suất tháng 07 giảm mạnh.</li>
+          <li><span>03</span>Chứng khoán Mỹ và châu Á tăng nhờ cổ phiếu chip, ngân hàng và dữ liệu lạm phát tích cực.</li>
+          <li><span>04</span>VN-Index tăng +0,34% lên 1.806,63 điểm; dầu khí, hóa chất và khí đốt tăng cả giá lẫn thanh khoản.</li>
+          <li><span>05</span>Nhóm doanh nghiệp liên quan Masterise hút 44,5 nghìn tỷ đồng trái phiếu; Bộ Xây dựng bỏ đề xuất sở hữu chung cư có thời hạn.</li>
+        </ul>
+      </aside>
+    </header>
+
+    <section aria-labelledby="domestic-market">
+      <div class="section-head">
+        <div><p class="eyebrow">Vietnam Market</p><h2 id="domestic-market">VN-Index lấy lại sắc xanh, dầu khí nổi bật</h2></div>
+        <p class="section-note">Giá tăng nhưng thanh khoản tiếp tục suy yếu ở phần lớn nhóm ngành; dầu khí, hóa chất và khí đốt là các điểm sáng hiếm hoi.</p>
+      </div>
+      <div class="grid-4">
+        <article class="metric"><p class="label">VN-Index</p><p class="value">1.806,63</p><span class="delta up"><i class="trend up">▲</i>+0,34% DoD</span></article>
+        <article class="metric"><p class="label">Thanh khoản</p><p class="value">14.262</p><span class="delta down"><i class="trend down">▼</i>tỷ đồng | -34,59% DoD</span></article>
+        <article class="metric"><p class="label">Khối ngoại</p><p class="value">-158</p><span class="delta down">tỷ đồng bán ròng</span></article>
+        <article class="metric"><p class="label">USD/VND</p><p class="value">26.450</p><span class="delta up"><i class="trend up">▲</i>+0,08% DoD</span></article>
+      </div>
+      <div class="market-layout" style="margin-top:18px">
+        <div class="story-box">
+          <h3>Dòng tiền phân hóa rõ</h3>
+          <p>VN-Index tăng nhẹ 0,34% lên 1.806,63 điểm. Nếu loại trừ nhóm VIN, các mã ảnh hưởng tiêu cực gồm HVN, TCB và VJC; chiều tăng được hỗ trợ bởi MCH, GAS và BSR.</p>
+          <p>Thanh khoản đạt 14.262 tỷ đồng, giảm 34,59% so với phiên 13/07. Dầu khí, hóa chất và khí đốt tăng ở cả giá và thanh khoản, trong khi bất động sản giảm ở cả hai chỉ tiêu.</p>
+          <p>Khối ngoại bán ròng 158 tỷ đồng, tập trung ở ngân hàng, chứng khoán và bất động sản; mua ròng nhiều hơn ở thực phẩm, dầu khí và hàng cá nhân.</p>
+          <p>PNJ tăng 7%, mạnh nhất từ đầu tháng 04 sau khi lãnh đạo công ty mua vào liên tục; sau giờ đóng cửa, các tin điều tra liên quan scandal kim cương tiếp tục được công bố.</p>
+        </div>
+        <div class="signal-board">
+          <div class="signal"><strong>BSR <em>Khối ngoại mua ròng</em></strong><span>73,37 tỷ đồng</span></div>
+          <div class="signal"><strong>PNJ <em>Khối ngoại mua ròng</em></strong><span>69,77 tỷ đồng</span></div>
+          <div class="signal"><strong>STB <em>Khối ngoại mua ròng</em></strong><span>59,78 tỷ đồng</span></div>
+          <div class="signal"><strong>SHB <em>Khối ngoại mua ròng</em></strong><span>42,77 tỷ đồng</span></div>
+          <div class="signal alert"><strong>CTG <em>Khối ngoại bán ròng</em></strong><span>107,08 tỷ đồng</span></div>
+          <div class="signal alert"><strong>VIC <em>Khối ngoại bán ròng</em></strong><span>92,18 tỷ đồng</span></div>
+          <div class="signal alert"><strong>VPB <em>Khối ngoại bán ròng</em></strong><span>83,94 tỷ đồng</span></div>
+          <div class="signal alert"><strong>FPT <em>Khối ngoại bán ròng</em></strong><span>81,61 tỷ đồng</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="world-market">
+      <div class="section-head">
+        <div><p class="eyebrow">Global Risk Map</p><h2 id="world-market">Quốc tế: CPI Mỹ hạ nhiệt, cổ phiếu chip hồi phục</h2></div>
+        <p class="section-note">Chứng khoán Mỹ tăng nhờ lạm phát tốt hơn dự báo và kết quả kinh doanh ngân hàng tích cực; châu Á cũng nghiêng về sắc xanh.</p>
+      </div>
+      <div class="market-layout">
+        <div class="global-index-grid" aria-label="Hiệu suất chỉ số quốc tế">
+          <div class="global-index"><strong>S&amp;P 500</strong><span><i class="trend up">▲</i>7.543,59 | +0,38% DoD</span></div>
+          <div class="global-index"><strong>Nasdaq</strong><span><i class="trend up">▲</i>26.107,01 | +0,90% DoD</span></div>
+          <div class="global-index"><strong>Dow Jones</strong><span><i class="trend up">▲</i>52.508,27 | +0,02% DoD</span></div>
+          <div class="global-index"><strong>Nikkei 225</strong><span><i class="trend up">▲</i>67.743,50 | +0,74% DoD</span></div>
+          <div class="global-index"><strong>KOSPI</strong><span><i class="trend up">▲</i>6.856,83 | +0,73% DoD</span></div>
+          <div class="global-index"><strong>Shanghai</strong><span><i class="trend up">▲</i>3.967,13 | +1,36% DoD</span></div>
+          <div class="global-index"><strong>Hang Seng</strong><span><i class="trend up">▲</i>24.357,35 | +0,59% DoD</span></div>
+        </div>
+        <ul class="text-list">
+          <li>Mỹ tiếp tục ném bom Iran, chủ yếu nhắm vào cơ sở năng lượng và hạ tầng dân sự lớn, nhưng chiến dịch đã tạm dừng hơn 8 tiếng; ông Trump hủy ý định thu phí 20% trên Eo biển Hormuz.</li>
+          <li>DeepSeek chuẩn bị cho IPO tại Trung Quốc và có thể nộp hồ sơ ngay trong năm nay.</li>
+          <li>Bitcoin lấy lại mốc 64.000 USD và ETH lấy lại 1.880 USD sau tin CPI Mỹ giảm theo tháng lần đầu kể từ 2020.</li>
+          <li>Nga phóng 68 tên lửa và 351 UAV vào Kyiv, khiến ít nhất 14 người thiệt mạng ngay trước thềm hội nghị thượng đỉnh NATO.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="macro">
+      <div class="section-head">
+        <div><p class="eyebrow">Macro Dashboard</p><h2 id="macro">Vĩ mô: CPI Mỹ tích cực nhưng ngân sách xấu đi</h2></div>
+        <p class="section-note">Xác suất tăng lãi suất tháng 07 giảm mạnh sau CPI, nhưng thâm hụt ngân sách Mỹ tăng đáng kể trong tháng 06.</p>
+      </div>
+      <div class="macro-grid">
+        <table class="macro-table">
+          <thead><tr><th>Chỉ tiêu</th><th>Diễn biến</th></tr></thead>
+          <tbody>
+            <tr><td>CPI Mỹ tháng 06</td><td><i class="trend up">▲</i>+3,5% YoY</td></tr>
+            <tr><td>CPI lõi Mỹ tháng 06</td><td><i class="trend up">▲</i>+2,6% YoY</td></tr>
+            <tr><td>Xác suất tăng lãi suất tháng 07</td><td>Giảm từ 41,7% xuống 12,3%</td></tr>
+            <tr><td>Thâm hụt ngân sách Mỹ tháng 06</td><td>120 tỷ USD, so với 27 tỷ USD năm 2025</td></tr>
+            <tr><td>Thặng dư thương mại Trung Quốc</td><td>125,62 tỷ USD</td></tr>
+            <tr><td>Thủy sản Việt Nam xuất sang Trung Quốc</td><td>Gần 1,4 tỷ USD trong 6T2026, +40% YoY</td></tr>
+            <tr><td>Lãi suất liên ngân hàng qua đêm</td><td>4,32% (<i class="trend down">▼</i>-1 bps)</td></tr>
+            <tr><td>TPCP 5 năm / 10 năm</td><td>3,96% / 4,46% (<i class="trend down">▼</i>-1 bps)</td></tr>
+          </tbody>
+        </table>
+        <div class="story-box">
+          <h3>Điểm đọc nhanh</h3>
+          <p>DXY giảm nhưng vẫn giữ trên 100; USD tiếp tục tăng so với Yên Nhật và duy trì trên 162.</p>
+          <p>Thặng dư thương mại Trung Quốc mở rộng nhờ xuất khẩu dịch vụ, linh kiện AI và ô tô tại châu Âu.</p>
+          <p>Trung Quốc vượt Mỹ trở thành thị trường xuất khẩu thủy sản lớn nhất của Việt Nam trong 6 tháng đầu năm.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="corporate">
+      <div class="section-head">
+        <div><p class="eyebrow">Corporate Highlights</p><h2 id="corporate">Tin doanh nghiệp đáng chú ý</h2></div>
+        <p class="section-note">Tin nổi bật xoay quanh PNJ, cổ đông lớn tại PC1, niêm yết chứng khoán - ngân hàng và bất động sản xã hội.</p>
+      </div>
+      <div class="news-grid">
+        <article class="news-item"><div class="ticker">PNJ</div><div class="news-copy"><p>Các hộ kinh doanh vàng nhỏ lẻ bị khởi tố trong đường dây buôn lậu kim cương liên quan công ty con PNJ.</p><a class="source-link" href="https://tuoitre.vn/khoi-to-chu-tiem-vang-kim-ly-ngoc-tam-ngoc-chau-au-vu-buon-lau-kim-cuong-100260714144314657.htm?utm_source=Netcore&utm_medium=Web%20Push&utm_campaign=TTO-WebPush-buonlaukimcuong&utm_term=Campaign&__sta=%7CJIQJ&__stm_medium=bpn&__stm_source=smartech" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">CTG</div><div class="news-copy"><p>VietinBank Capital nâng sở hữu tại PC1 lên 7,54%, trở thành cổ đông lớn thứ ba của doanh nghiệp.</p><a class="source-link" href="https://tuoitre.vn/dien-bien-moi-tai-pc1-sau-cii-vietinbank-capital-tro-thanh-co-dong-lon-100260714210809623.htm" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">BVB</div><div class="news-copy"><p>Được NHNN chấp thuận tăng vốn điều lệ lên gần 10.000 tỷ đồng, chuẩn bị triển khai lộ trình niêm yết trên HOSE.</p><a class="source-link" href="https://thitruongtaichinhtiente.vn/hon-1-ty-co-phieu-vietbank-giao-dich-tren-hose-bvbank-va-abbank-cho-nhap-cuoc-84242.html" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">DPG</div><div class="news-copy"><p>Khởi công dự án nhà ở xã hội quy mô 700 tỷ đồng tại Đà Nẵng.</p><a class="source-link" href="https://laodong.vn/bat-dong-san/da-nang-khoi-cong-du-an-nha-o-xa-hoi-700-ti-dong-tai-con-tien-1734894.ldo" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">LPBS</div><div class="news-copy"><p>HOSE tiếp nhận hồ sơ niêm yết của Chứng khoán LPBank với 1,4 tỷ cổ phiếu, vốn điều lệ hơn 14.000 tỷ đồng.</p><a class="source-link" href="https://www.tinnhanhchungkhoan.vn/chung-khoan-lpbank-lpbs-nop-ho-so-niem-yet-hon-14-ty-co-phieu-tren-san-hose-post393964.html" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">MSR</div><div class="news-copy"><p>Thái Nguyên đang tháo gỡ vướng mắc cho các dự án mở rộng mỏ vonfram Núi Pháo của Masan.</p><a class="source-link" href="https://nguoiquansat.vn/thai-nguyen-go-vuong-du-an-mo-vonfram-115-trieu-tan-cua-masan-chot-han-hoan-thanh-nhiem-vu-trong-tam-truoc-30-7-303673.html" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        <article class="news-item"><div class="ticker">DHG</div><div class="news-copy"><p>Dược Hậu Giang bị xử phạt và truy thu hơn 10 tỷ đồng vì vi phạm hành chính về thuế.</p><a class="source-link" href="https://tuoitre.vn/tin-tuc-sang-15-7-duoc-hau-giang-bi-phat-va-truy-thu-thue-hon-chuc-ti-dong-100260714183047304.htm" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="asset-watch">
+      <div class="section-head">
+        <div><p class="eyebrow">Asset Watch</p><h2 id="asset-watch">Hàng hóa, trái phiếu, ETF và bất động sản</h2></div>
+        <p class="section-note">Dầu và cước vận tải tiếp tục tăng, vàng thế giới giảm; trái phiếu Masterise và câu chuyện sở hữu chung cư là hai điểm đáng chú ý.</p>
+      </div>
+      <div class="asset-group">
+        <h3>Hàng hóa và năng lượng</h3>
+        <div class="commodity-strip">
+          <div class="commodity up"><small>Dầu Brent</small><strong>85,62 USD/thùng</strong><span><i class="trend up">▲</i>+1,45% DoD</span></div>
+          <div class="commodity up"><small>Dầu WTI</small><strong>79,86 USD/thùng</strong><span><i class="trend up">▲</i>+0,46% DoD</span></div>
+          <div class="commodity down"><small>Vàng thế giới</small><strong>4.032,80 USD/ounce</strong><span><i class="trend down">▼</i>-0,51% DoD</span></div>
+          <div class="commodity up"><small>Vàng SJC</small><strong>148,5 triệu đồng/lượng</strong><span><i class="trend up">▲</i>+0,06% DoD</span></div>
+          <div class="commodity flat"><small>Thép HRC Trung Quốc</small><strong>3.360 CNY/tấn</strong><span>0,0% DoD</span></div>
+          <div class="commodity down"><small>Thỏi thiếc Trung Quốc</small><strong>410.660 CNY/tấn</strong><span><i class="trend down">▼</i>-0,4% DoD</span></div>
+          <div class="commodity flat"><small>Phân ure</small><strong>408,5 USD/tấn</strong><span>0,0% DoD</span></div>
+          <div class="commodity up"><small>Heo hơi Việt Nam</small><strong>63.733 VND/kg</strong><span><i class="trend up">▲</i>+0,5% DoD</span></div>
+          <div class="commodity up"><small>Cước vận tải dầu thô</small><strong>2.060 điểm</strong><span><i class="trend up">▲</i>+0,1% DoD</span></div>
+          <div class="commodity up"><small>Cước vận tải hàng rời</small><strong>2.960 điểm</strong><span><i class="trend up">▲</i>+0,5% DoD</span></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <h3>Trái phiếu</h3>
+        <div class="news-grid">
+          <article class="news-item"><div class="ticker">TP</div><div class="news-copy"><p>6 doanh nghiệp liên quan Masterise hút 44,5 nghìn tỷ đồng trái phiếu trong nửa đầu 2026, kỳ hạn 12-60 tháng, lãi suất 9-10%, chiếm 24% toàn thị trường trái phiếu doanh nghiệp.</p><a class="source-link" href="https://vietstock.vn/2026/07/nhom-doanh-nghiep-lien-quan-masterise-hut-445-ngan-ty-dong-trai-phieu-trong-nua-dau-nam-3118-1465836.htm" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <h3>Quỹ ETF</h3>
+        <div class="news-grid"><article class="news-item"><div class="ticker">ETF</div><div class="news-copy"><p>Không ghi nhận tin tức liên quan đến quỹ ETF.</p></div></article></div>
+      </div>
+
+      <div class="asset-group">
+        <h3>Bất động sản</h3>
+        <div class="news-grid">
+          <article class="news-item"><div class="ticker">BĐS</div><div class="news-copy"><p>Bộ Xây dựng bỏ đề xuất sở hữu chung cư có thời hạn và chấm dứt quyền sở hữu căn hộ khi công trình hết thời hạn sử dụng; HoREA đề xuất giữ quyền sở hữu không thời hạn với quyền sử dụng đất lâu dài.</p><a class="source-link" href="https://thanhnien.vn/bo-xay-dung-bo-de-xuat-so-huu-chung-cu-co-thoi-han-185260714120551352.htm?gidzl=g_rCSAeuAqMgu4fsfY8gIgVcItoz8tfEkEHEARLm9aZWunDxutHrJEEx7NgoUdaQjkfAAMKqzb04hJqbJ0" target="_blank" rel="noopener noreferrer">Nguồn</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>EMAKASE Daily Market Recap - bản HTML infographic từ file Word giai đoạn 13-14/07/2026.</span>
+      <span>Brand colors: #003a31, #73ba9b, #d4f2e3, #720813, #f1e7c9. Typeface: Roboto / system fallback.</span>
+    </footer>
+  </main>
+  <script>
+    const navLinks = [...document.querySelectorAll(".scroll-link")];
+    const sections = navLinks.map((link) => document.getElementById(link.dataset.target)).filter(Boolean);
+    let requestedSection = "";
+    let requestedTimer;
+    function setActive(id) { navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.target === id)); }
+    function updateActiveFromScroll() {
+      const marker = window.scrollY + window.innerHeight * 0.34;
+      let current = sections[0]?.id;
+      const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 12;
+      for (const section of sections) if (section.offsetTop <= marker) current = section.id;
+      if (nearBottom && sections.length) current = sections[sections.length - 1].id;
+      if (requestedSection) {
+        const target = document.getElementById(requestedSection);
+        const distance = Math.abs(target.getBoundingClientRect().top);
+        if (distance < 120) requestedSection = ""; else current = requestedSection;
+      }
+      if (current) setActive(current);
+    }
+    navLinks.forEach((link) => link.addEventListener("click", () => {
+      requestedSection = link.dataset.target;
+      setActive(requestedSection);
+      clearTimeout(requestedTimer);
+      requestedTimer = setTimeout(() => { requestedSection = ""; updateActiveFromScroll(); }, 900);
+    }));
+    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+    window.addEventListener("resize", updateActiveFromScroll);
+    updateActiveFromScroll();
+  </script>
+</body>
+</html>
